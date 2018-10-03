@@ -33,7 +33,7 @@
                         </div>
 
                         <!-- btn lg: para dar mas tamaño al boton -->
-                        <a id="btnStart" href="#aboutMe" class="btn btn-lg active">REGISTRARSE</a>
+                        <a id="btnStart" href="#Registrarse" class="btn btn-lg active">REGISTRARSE</a>
                     </div>
                 </div>
             </div>
@@ -41,70 +41,51 @@
     </header>
 
     <!-- CUERPO -->
-    <main>
-        <div class="container">
-            <div class="row">
-                <h1>Ingrese sus datos</h1>
-            </div>
-            <div class="row">
-                <form>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Nombres</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Nombres" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Apellidos</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Apellidos" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">DNI / Carnet de extranjeria</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="DNI / Carnet de extranjeria" value=""
-                                required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Correo Electrónico</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Correo Electrónico" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Empresa</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Empresa" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Anfritión</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Anfritión" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Motivo de visita</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <!-- <button class="btn btn-primary" type="submit">ENVIAR</button> -->
-
-                </form>
+    <main id="Registrarse">
+        <div class="container-fluid">
+            <form action="">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputLastName">Apellidos</label>
+                        <input type="text" class="form-control" id="inputLastName" placeholder="Apellidos">
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="inputIdentification">DNI/Carnet de extranjeria</label>
+                    <input type="text" class="form-control" id="inputIdentification" placeholder="DNI/Carnet de extranjeria">
+                </div>
+                <div class="form-group">
+                    <label for="inputCompany">Empresa</label>
+                    <input type="text" class="form-control" id="inputCompany" placeholder="Empresa">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputAnfitrion">Anfitrion</label>
+                        <input type="text" class="form-control" id="inputAnfitrion" placeholder="Anfitrión">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputMensaje">Mensaje</label>
+                        <input type="text" class="form-control" id="inputMenssage" placeholder="Mensaje">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
+            </form>
+        </div>
     </main>
+    <!-- <form>
+        <div>
+            <label for="party">Elija la fecha de festejo que prefiera (obligatorio, del 1.º al 20 de abril):</label>
+            <input type="date" id="party" name="party" min="2017-04-01" max="2017-04-20" required>
+            <span class="validity"></span>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form> -->
 
 
 
@@ -114,6 +95,41 @@
 
 
     <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
+
+    <!-- CONEXIÓN FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBOP5edWurMShfnlciKhMbK3j7lEJ0ZawI",
+            authDomain: "youwork-c0d99.firebaseapp.com",
+            databaseURL: "https://youwork-c0d99.firebaseio.com",
+            projectId: "youwork-c0d99",
+            storageBucket: "youwork-c0d99.appspot.com",
+            messagingSenderId: "350271671798"
+        };
+        firebase.initializeApp(config);
+
+        //-------------------- DOM ----------------------------------------------
+        const nameTxt = document.getElementById('inputName');
+        const lastName = document.getElementById('inputLastName');
+        const identification = document.getElementById('inputIdentification');
+        const company = document.getElementById('inputCompany');
+        const anfitrion = document.getElementById('inputAnfitrion');
+        const menssage = document.getElementById('inputMenssage');
+        const btnEnviar = document.getElementById('btnEnviar');
+
+        btnEnviar.addEventListener('click', () => {
+            const name = nameTxt.value;
+            const apellido = lastName.value;
+            const identificacion = identification.value;
+            const empresa = company.value;
+            const anfitrions = anfitrion.value;
+            const mensaje = menssage.value;
+            alert(name);
+        })
+    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
