@@ -1,0 +1,17 @@
+#header {
+    background-image: url(../img/header-comunal1.jpg);
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+	background-position: center;
+    background-size: cover;;
+}
+#titleHeader {
+    text-shadow: 5px 5px 5px rgb(90, 90, 90);
+    font-family: 'Oswald', sans-serif;
+}
+#btnStart {
+    color: #000000;
+    background-color: rgb(245, 245, 12);
+}
