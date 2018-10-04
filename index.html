@@ -42,7 +42,10 @@
 
     <!-- CUERPO -->
     <main id="Registrarse">
-        <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <h1>Registrarse</h1>
+            </div>
             <form action="">
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -59,6 +62,10 @@
                     <input type="text" class="form-control" id="inputIdentification" placeholder="DNI/Carnet de extranjeria">
                 </div>
                 <div class="form-group">
+                        <label for="inputEmail">Correo Electrónico</label>
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                    </div>
+                <div class="form-group">
                     <label for="inputCompany">Empresa</label>
                     <input type="text" class="form-control" id="inputCompany" placeholder="Empresa">
                 </div>
@@ -69,7 +76,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputMensaje">Mensaje</label>
-                        <input type="text" class="form-control" id="inputMenssage" placeholder="Mensaje">
+                        <textarea name="message" class="form-control" id="inputMenssage" placeholder="Mensaje" rows="5"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
@@ -96,40 +103,9 @@
 
     <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
 
-    <!-- CONEXIÓN FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBOP5edWurMShfnlciKhMbK3j7lEJ0ZawI",
-            authDomain: "youwork-c0d99.firebaseapp.com",
-            databaseURL: "https://youwork-c0d99.firebaseio.com",
-            projectId: "youwork-c0d99",
-            storageBucket: "youwork-c0d99.appspot.com",
-            messagingSenderId: "350271671798"
-        };
-        firebase.initializeApp(config);
-
-        //-------------------- DOM ----------------------------------------------
-        const nameTxt = document.getElementById('inputName');
-        const lastName = document.getElementById('inputLastName');
-        const identification = document.getElementById('inputIdentification');
-        const company = document.getElementById('inputCompany');
-        const anfitrion = document.getElementById('inputAnfitrion');
-        const menssage = document.getElementById('inputMenssage');
-        const btnEnviar = document.getElementById('btnEnviar');
-
-        btnEnviar.addEventListener('click', () => {
-            const name = nameTxt.value;
-            const apellido = lastName.value;
-            const identificacion = identification.value;
-            const empresa = company.value;
-            const anfitrions = anfitrion.value;
-            const mensaje = menssage.value;
-            alert(name);
-        })
-    </script>
-    <script src="index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
 </body>
 
 </html>
