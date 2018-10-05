@@ -11,7 +11,7 @@
     text-shadow: 5px 5px 5px rgb(90, 90, 90);
     font-family: 'Oswald', sans-serif;
 }
-#btnStart {
+#btnStart, #btnPhoto {
     color: #000000;
     background-color: rgb(245, 245, 12);
     font-family: 'Oswald', sans-serif;
@@ -28,8 +28,8 @@
     color: #36A0FF;
 }
 #Registrarse , #capturarImagen {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     
 }
 
