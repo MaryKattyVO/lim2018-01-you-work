@@ -43,10 +43,13 @@
     <!-- CUERPO -->
     <main id="Registrarse">
         <div class="container">
-            <form action="">
-                <div class="form-row">
+            <div class="row">
+                <h1>Registrar sus datos</h1>
+            </div>
+            <form id="convalidaciones">
+                <div class="form-row mt-5">
                     <div class="form-group col-md-6">
-                        <label for="inputName">Nombre</label>
+                        <label for="inputName">Nombres</label>
                         <input type="text" class="form-control" id="inputName" placeholder="Nombre">
                     </div>
                     <div class="form-group col-md-6">
@@ -76,22 +79,45 @@
             </form>
         </div>
     </main>
-    <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
+    <!-- CAPTURAR IMAGEN -->
+    <section id="capturarImagen" style="background-color: #f1f1f1">
+        <div class="container">
+            <div class="row">
+                <h1>Tomarse una foto</h1>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <video autoplay="true" width="400" height="200"></video>
+                    <canvas width="250" height="200"></canvas>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary" id="start">Empezar</button>
+                    <button type="submit" class="btn btn-primary" id="capture">Capturar imagen</button>
+                </div>
+            </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+        </div>
+        </div>
+    </section>
+
+    <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
+    <script src="js/data.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyBOP5edWurMShfnlciKhMbK3j7lEJ0ZawI",
             authDomain: "youwork-c0d99.firebaseapp.com",
             databaseURL: "https://youwork-c0d99.firebaseio.com",
-            projectId: "youwork-c0d99",
+            projectIds: "youwork-c0d99",
             storageBucket: "youwork-c0d99.appspot.com",
             messagingSenderId: "350271671798"
         };
         firebase.initializeApp(config);
     </script>
-    <script src="js/data.js"></script>
+   
 </body>
 
 </html>
