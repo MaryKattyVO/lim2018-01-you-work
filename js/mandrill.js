@@ -5,7 +5,7 @@ window.sendMandrill = (visitorDate) => {
         data: {
             'key': 'ZGiSDAUGJIgaCMIqm9ysPA',
             'message': {
-                "html": "<p>B</p>",
+                "html": `<p>Buenos días usted tienes una cita con ${visitorDate.name}</p>`,
                 "text": "Example text content",
                 "subject": "otro subject",
                 "from_email": "alejandra@laboratoria.la",
@@ -13,12 +13,12 @@ window.sendMandrill = (visitorDate) => {
                 "to": [
                     {
                         "email": "mkvicunaore@gmail.com",
-                        "name": "Recipient Name",
+                        "name": "Mary Katty",
                         "type": "to"
                     }
                 ],
                 "headers": {
-                    "Reply-To": "alejandra@laboratoria.la"
+                    "Reply-To": "marycatty@laboratoria.la"
                 }
 
             },

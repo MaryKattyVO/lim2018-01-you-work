@@ -67,8 +67,11 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputAnfitrion">Anfitrion</label>
-                        <input type="text" class="form-control" id="inputAnfitrion" placeholder="Anfitrión">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option value="mkvicunaore@gmail.com">Mary Katty</option>
+                              <option value="tizce2598@gmail.com">Leyla Tycze</option>
+                            </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputMensaje">Mensaje</label>
@@ -104,8 +107,7 @@
     </section>
 
     <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
-    <script src="js/data.js"></script>
-    <script src="js/mandrill.js"></script>
+    
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -119,7 +121,8 @@
         };
         firebase.initializeApp(config);
     </script>
-   
+   <script src="js/data.js"></script>
+   <script src="js/mandrill.js"></script>
 </body>
 
 </html>
