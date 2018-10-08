@@ -27,10 +27,11 @@ btnEnviar.addEventListener('click', () => {
     // photo: dataURL
   }
   firebase.database().ref().child('visitors').push(obj);
-
-  let ref=firebase.database().ref('/visitors')
+  let ref=firebase.database().ref().child('visitors')
   ref.once('value', (data) => {
+    console.log(data);
     data.forEach(visitor => {
+      console.log(data);
       const visitorDate = visitor.val();
       console.log(visitorDate)
       sendMandrill(visitorDate);
