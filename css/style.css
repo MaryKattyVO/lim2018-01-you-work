@@ -27,7 +27,7 @@
     font-size: 35px;
     color: #36A0FF;
 }
-#Registrarse {
+#registrarse, #results {
     padding-top: 50px;
     padding-bottom: 80px;
     
@@ -39,5 +39,11 @@
     text-align: right;
     padding-right: 20px;
     padding-top: 20px;
+}
+#results {
+    background-color: #f1f1f1;
+}
+#titleRegister {
+    text-align: center;
 }
 

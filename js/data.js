@@ -34,8 +34,6 @@ btnEnviar.addEventListener('click', () => {
       sendMandrill(visitorDate);
     })
   })
-  document.getElementById('header').removeAttribute('class');
-  document.getElementById('registrarse').setAttribute('class', "hidden");
 })
 //PINTANDO DATA EN TABLAS
 firebase.database().ref().child('visitors')
