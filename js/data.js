@@ -1,25 +1,21 @@
 // -------------------- DOM ----------------------------------------------
 const nameTxt = document.getElementById('inputName');
-const lastName = document.getElementById('inputLastName');
 const identification = document.getElementById('inputIdentification');
-const company = document.getElementById('inputCompany');
 const menssage = document.getElementById('inputMenssage');
 const btnEnviar = document.getElementById('btnEnviar');
 const date = new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear();
 const hour = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds();
+const contentTable = document.getElementById('contentTable');
 
 btnEnviar.addEventListener('click', () => {
   const name = nameTxt.value;
-  const apellido = lastName.value;
   const identificacion = identification.value;
-  const empresa = company.value;
   const selector = document.getElementById('selector').value;
+
   const mensaje = menssage.value;
   const obj = {
     name,
-    apellido,
     identificacion,
-    empresa,
     selector,
     mensaje,
     date,
@@ -27,7 +23,8 @@ btnEnviar.addEventListener('click', () => {
     // photo: dataURL
   }
   firebase.database().ref().child('visitors').push(obj);
-  let ref=firebase.database().ref().child('visitors')
+
+  let ref = firebase.database().ref().child('visitors')
   ref.once('value', (data) => {
     console.log(data);
     data.forEach(visitor => {
@@ -37,9 +34,19 @@ btnEnviar.addEventListener('click', () => {
       sendMandrill(visitorDate);
     })
   })
-  
+  document.getElementById('header').removeAttribute('class');
+  document.getElementById('registrarse').setAttribute('class', "hidden");
 })
-
+//PINTANDO DATA EN TABLAS
+firebase.database().ref().child('visitors')
+  .on('value', (data) => {
+    var content = '';
+    data.forEach(e => {
+      var element = e.val();
+      content += "<tr><td></td><td>"+element.name+"</td><td>"+element.identificacion+"</td><td>"+element.date+"</td><td>"+element.hour+"</td></tr>";
+    });
+    contentTable.innerHTML = content;
+  })
 //---------------- CAPTURAR IMAGEN --------------------------------
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
@@ -66,6 +73,7 @@ btnStarts.addEventListener('click', function () {
     var canvas = document.getElementById('canvas');
     var dataURL = canvas.toDataURL();
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    firebase.database().ref().child('visitors').push(dataURL);
     console.log(dataURL);
   }, false);
 

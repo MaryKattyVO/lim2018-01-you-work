@@ -27,9 +27,17 @@
     font-size: 35px;
     color: #36A0FF;
 }
-#Registrarse , #capturarImagen {
-    padding-top: 80px;
+#Registrarse {
+    padding-top: 50px;
     padding-bottom: 80px;
     
+}
+#textAdmin {
+    color: #000000;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 20px;
 }
 

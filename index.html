@@ -16,13 +16,17 @@
 </head>
 
 <body>
-    <!-- ++++++++++++++++++++ START THE CODE +++++++++++++++++++++ -->
-
+    <!-- +++++++++++++++++++++++++++++++ START CODE +++++++++++++++++++++++++++++++ -->
     <!-- HEADER -->
-    <header id="header" class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark">
+    <header id="header" class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark header">
         <!-- mt-5 :margen top -5 dara espacio -->
-        <div class="container-fluid mt-5">
+        <div id="principal" class="container-fluid mt-5">
             <div class="row justify-content-center align-items-center d-flex text-center h-100">
+                <div>
+                    <a href="#results">
+                        <p class="fixed-top" id="textAdmin" class="btn btn-lg active">Administrador</p>
+                    </a>
+                </div>
                 <div class="col-md-12 col-md-8  h-50">
                     <!-- header content:para poder animacion -->
                     <div class="header-content">
@@ -31,80 +35,86 @@
                         <div class="mt-4 mb-5">
                             <img src="img/logo-comunal.png" alt="">
                         </div>
-
-                        <!-- btn lg: para dar mas tamaño al boton -->
-                        <a id="btnStart" href="#Registrarse" class="btn btn-lg active">REGISTRARSE</a>
                     </div>
+                    <!-- btn lg: para dar mas tamaño al boton -->
+                    <a id="btnStart" href="#registrarse" class="btn btn-lg active">
+                        <img src="img/registrarse.png ">REGISTRESE</a>
                 </div>
             </div>
         </div>
     </header>
+    <!-- THE END HEADER -->
 
-    <!-- CUERPO -->
-    <main id="Registrarse">
-        <div class="container">
+    <!-- CUERPO: FORMULARIO REGISTRO DEL CLIENTE -->
+    <main id="registrarse" class="hidden">
+        <div class="container" id="principal">
             <div class="row">
-                <h1>Registrar sus datos</h1>
+                <h1>Registre sus datos</h1>
             </div>
             <form id="convalidaciones">
                 <div class="form-row mt-5">
                     <div class="form-group col-md-6">
-                        <label for="inputName">Nombres</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Nombre">
+                        <label for="inputName">Nombre completo</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Ingresar nombre">
+                        <label for="inputIdentification" class="mt-3">DNI/Carnet de extranjeria</label>
+                        <input type="text" class="form-control" id="inputIdentification" placeholder="Ingresar DNI/Carnet de extranjeria">
+                        <label for="exampleFormControlSelect1" class="mt-3">Anfitrión</label>
+                        <select class="form-control" id="selector" class="mt-3">
+                            <option value="mkvicunaore@gmail.com" id="nameOne">Seleccione...</option>
+                            <option value="mkvicunaore@gmail.com" id="nameOne">Mary Katty</option>
+                            <option value="tizce2598@gmail.com" id="nameTwo">Leyla Tycze</option>
+                        </select>
+                        <label for="inputMensaje" class="mt-3">Mensaje</label>
+                        <input type="text" class="form-control" id="inputMenssage" placeholder="Ingresar mensaje">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputLastName">Apellidos</label>
-                        <input type="text" class="form-control" id="inputLastName" placeholder="Apellidos">
+                    <!-- CAPTURAR IMAGEN -->
+                    <div class="form-group col-md-6" id="capturarImagen" style="background-color: #f1f1f1">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <video autoplay="true" width="400" height="200"></video>
+                                <canvas id="canvas" width="250" height="200"></canvas>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <button type="submit" class="btn btn-primary" id="btnStarts">Empezar</button>
+                                <button type="submit" class="btn btn-primary" id="btnCapture">Capturar imagen</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BOTÓN ENVIAR -->
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputIdentification">DNI/Carnet de extranjeria</label>
-                    <input type="text" class="form-control" id="inputIdentification" placeholder="DNI/Carnet de extranjeria">
-                </div>
-                <div class="form-group">
-                    <label for="inputCompany">Empresa</label>
-                    <input type="text" class="form-control" id="inputCompany" placeholder="Empresa">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                            <label for="exampleFormControlSelect1">Example select</label>
-                            <select class="form-control" id="selector">
-                              <option value="mkvicunaore@gmail.com">Mary Katty</option>
-                              <option value="tizce2598@gmail.com">Leyla Tycze</option>
-                            </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputMensaje">Mensaje</label>
-                        <input type="text" class="form-control" id="inputMenssage" placeholder="Mensaje">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" id="btnEnviar">Enviar</button>
-                
             </form>
         </div>
     </main>
-    <!-- CAPTURAR IMAGEN -->
-    <section id="capturarImagen" style="background-color: #f1f1f1">
-        <div class="container">
-            <div class="row">
-                <h1>Tomarse una foto</h1>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-12 text-center">
-                    <video autoplay="true" width="400" height="200"></video>
-                    <canvas id="canvas" width="250" height="200"></canvas>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary" id="btnStarts">Empezar</button>
-                    <button type="submit" class="btn btn-primary" id="btnCapture">Capturar imagen</button>
-                </div>
-            </div>
+    <!-- THE END CUERPO -->
 
+
+    <!-- MOSTRAR RESULTADOS: LADO DEL ADMINISTRADOR -->
+    <div id="results" class="hidden">
+        <div class="container" id="principal">
+            <h2>DATA DASBOARD</h2>
+            <p></p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre completo</th>
+                        <th>DNI/Carnet de extranjeria</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="contentTable">
+                </tbody>
+            </table>
         </div>
-        </div>
-    </section>
+    </div>
+
+    <!-- THE END MOSTRAR RESULTADOS  -->
 
     <!-- ++++++++++++++++++++ END THE CODE ++++++++++++++++++++ -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -121,8 +131,8 @@
         };
         firebase.initializeApp(config);
     </script>
-   <script src="js/data.js"></script>
-   <script src="js/mandrill.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/mandrill.js"></script>
 </body>
 
 </html>
