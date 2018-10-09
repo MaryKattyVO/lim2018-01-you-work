@@ -5,7 +5,7 @@ window.sendMandrill = (visitorDate) => {
         data: {
             'key': 'ZGiSDAUGJIgaCMIqm9ysPA',
             'message': {
-                "html": `<p>${visitorDate.name} Está esperando en el Lobi de Coworking Comunal</p>`,
+                "html": `<p>${visitorDate.name} está esperando en el Lobi de Coworking Comunal</p>`,
                 "text": "Notificación Cita",
                 "subject": `${visitorDate.name} le ha enviado un mensaje`,
                 "from_email": "alejandra@laboratoria.la",

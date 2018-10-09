@@ -7,6 +7,7 @@ const date = new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date
 const hour = new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds();
 const contentTable = document.getElementById('contentTable');
 
+//--------------  ALMACENAR INFORMACIÓN ------------------------------
 btnEnviar.addEventListener('click', () => {
   const name = nameTxt.value;
   const identificacion = identification.value;
@@ -35,7 +36,8 @@ btnEnviar.addEventListener('click', () => {
     })
   })
 })
-//PINTANDO DATA EN TABLAS
+
+//---------------- PINTANDO DATA EN TABLAS -------------------------------
 firebase.database().ref().child('visitors')
   .on('value', (data) => {
     var content = '';
@@ -45,6 +47,7 @@ firebase.database().ref().child('visitors')
     });
     contentTable.innerHTML = content;
   })
+
 //---------------- CAPTURAR IMAGEN --------------------------------
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
@@ -76,14 +79,3 @@ btnStarts.addEventListener('click', function () {
   }, false);
 
 }, false);
-
-
-// //get: obtener elements
-// const preObject = document.getElementById('object');
-
-// //Crear referencias
-// const dbRefObject = firebase.database().ref().child('object');
-
-// //Sincronizar object changes(cambio)
-
-// dbRefObject.on('value', snap => console.log(snap.val()));
